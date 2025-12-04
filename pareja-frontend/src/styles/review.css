@@ -1,0 +1,72 @@
+.review-section {
+  background: rgba(9, 12, 24, 0.96);
+  border-radius: 18px;
+  padding: 14px 14px 16px;
+}
+
+.review-section h2 {
+  margin: 0 0 10px;
+  font-size: 1rem;
+}
+
+/* barras */
+.chart-row {
+  display: grid;
+  grid-template-columns: 110px 1fr 45px;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.chart-label {
+  width: 70px;
+  font-size: 0.85rem;
+}
+
+.chart-bar-track {
+  flex: 1;
+  height: 8px;
+  border-radius: 999px;
+  background: #111827;
+  overflow: hidden;
+}
+
+.chart-bar-fill {
+  height: 100%;
+  border-radius: inherit;
+  transition: width 0.25s ease-out;
+}
+
+.chart-nicolas {
+  background: var(--blue);
+}
+
+.chart-kely {
+  background: var(--pink);
+}
+
+.chart-value {
+  width: 38px;
+  text-align: right;
+  font-size: 0.85rem;
+}
+
+.review-summary {
+  margin: 0 0 4px;
+  font-size: 0.9rem;
+}
+
+.review-suggestion {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.review-list {
+  margin-top: 10px;
+  padding-left: 18px;
+}
+
+.review-list li {
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+  color: var(--muted);
+}
