@@ -3,8 +3,29 @@ import useWeeklyReview from "../hooks/useWeeklyReview";
 import { getWeekRangeLabel } from "../utils/dates";
 import ChartBar from "../components/ChartBar";
 
+/* ✅ NOTAS LITERALES */
+function LiteralNotes({ notes }) {
+  if (!notes || notes.length === 0) {
+    return (
+      <p className="review-empty" style={{ marginTop: "0.4rem" }}>
+        No hubo notas escritas esta semana.
+      </p>
+    );
+  }
+
+  return (
+    <ul style={{ marginTop: "0.6rem", paddingLeft: "1.2rem" }}>
+      {notes.map((n, i) => (
+        <li key={i} style={{ marginBottom: "0.4rem" }}>
+          <strong>{n.date}:</strong> {n.note}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+/* ✅ REVIEW POR PERSONA */
 function PersonalReview({ name, colorClass, data }) {
-  // ✅ CASO: aún no hay datos para esta persona
   if (!data || !data.percentages) {
     return (
       <section className="review-section">
@@ -36,11 +57,18 @@ function PersonalReview({ name, colorClass, data }) {
         colorClass={colorClass}
       />
 
+      {/* ✅ TEXTO INTERPRETADO */}
       <ul className="review-list">
         {data.text.map((line, i) => (
           <li key={i}>{line}</li>
         ))}
       </ul>
+
+      {/* ✅ NOTAS LITERALES */}
+      <div style={{ marginTop: "0.8rem" }}>
+        <h4>Notas escritas</h4>
+        <LiteralNotes notes={data.notes} />
+      </div>
     </section>
   );
 }
